@@ -1,5 +1,16 @@
 language: java
 jdk:
   - openjdk8
+services:
+  - docker
+env:
+  global:
+    - DOCKER_IMAGE_FULL_NAME="$TRAVIS_REPO_SLUG:$TRAVIS_COMMIT"
 script:
-  - mvn install -B -V
+  - mvn package
+  - docker build -t "$DOCKER_IMAGE_FULL_NAME" .
+deploy:
+  provider: script
+  script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_IMAGE_FULL_NAME"
+  on:
+    branch: master

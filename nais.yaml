@@ -4,7 +4,7 @@ metadata:
   name: nais-deploytest
   namespace: default
   labels:
-    team: eessi basis
+    team: eessibasis
 spec:
   image: navikt/deploytest:latest
   port: 8080
