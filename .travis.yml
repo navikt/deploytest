@@ -5,7 +5,7 @@ services:
   - docker
 env:
   global:
-    - DOCKER_IMAGE_FULL_NAME="$TRAVIS_REPO_SLUG:$TRAVIS_COMMIT"
+    - DOCKER_IMAGE_FULL_NAME="navikt/eessideploytest:$TRAVIS_COMMIT"
 script:
   - mvn package
   - docker build -t "$DOCKER_IMAGE_FULL_NAME" .
