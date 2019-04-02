@@ -7,8 +7,8 @@ env:
   global:
     - DOCKER_IMAGE_FULL_NAME="navikt/eessideploytest:$TRAVIS_COMMIT"
 script:
-  - #mvn package
-  - #docker build -t "$DOCKER_IMAGE_FULL_NAME" .
+  - mvn package
+  - docker build -t "$DOCKER_IMAGE_FULL_NAME" .
 deploy:
   provider: script
   skip_cleanup: true
