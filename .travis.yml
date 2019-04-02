@@ -19,7 +19,6 @@ deploy:
         -H "Accept: application/vnd.github.ant-man-preview+json" \
         -u "$GIT_USERNAME":"$GIT_TOKEN" \
         https://api.github.com/repos/navikt/deploytest/deployments
-
   on:
     branch: master
 
