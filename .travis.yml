@@ -11,7 +11,8 @@ script:
   - #docker build -t "$DOCKER_IMAGE_FULL_NAME" .
 deploy:
   provider: script
-  script: "./deploy.sh"
+  skip_cleanup: true
+  script: chmod +x ./deploy.sh && ./deploy.sh
   on:
     branch: master
 
