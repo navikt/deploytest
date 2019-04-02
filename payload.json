@@ -1,0 +1,54 @@
+{
+  "ref": "master",
+  "description": "Automated deployment request from our pretty pipeline",
+  "environment": "dev-fss",
+  "payload": {
+    "version": [1, 0, 0],
+    "team": "eessibasis",
+    "kubernetes": {
+      "resources": [
+        {
+          "apiVersion": "nais.io/v1alpha1",
+          "kind": "Application",
+          "metadata": {
+            "name": "nais-deploytest",
+            "namespace": "default",
+            "labels": {
+              "team": "eessibasis"
+            }
+          },
+          "spec": {
+            "image": "navikt/deploytest:latest",
+            "port": 8080,
+            "liveness": {
+              "path": "/isalive"
+            },
+            "readiness": {
+              "path": "/isready"
+            },
+            "prometheus": {
+              "path": "/metrics"
+            },
+            "replicas": {
+              "min": 2,
+              "max": 4
+            },
+            "ingresses": [
+              "https://nais-deploytest.nais.preprod.local"
+            ],
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "200m",
+                "memory": "256Mi"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
