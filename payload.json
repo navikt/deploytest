@@ -2,6 +2,7 @@
   "ref": "master",
   "description": "Automated deployment request from our pretty pipeline",
   "environment": "dev-fss",
+  "required_contexts": [],
   "payload": {
     "version": [1, 0, 0],
     "team": "eessibasis",
