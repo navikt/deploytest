@@ -35,7 +35,7 @@
               "max": 4
             },
             "ingresses": [
-              "https://nais-deploytest.nais.preprod.local"
+              "https://deploytest.dev-fss.nais.io"
             ],
             "resources": {
               "limits": {
