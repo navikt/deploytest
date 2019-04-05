@@ -5,7 +5,7 @@
   "required_contexts": [],
   "payload": {
     "version": [1, 0, 0],
-    "team": "eessibasis",
+    "team": "eessi-basis",
     "kubernetes": {
       "resources": [
         {
