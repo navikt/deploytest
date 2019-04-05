@@ -15,7 +15,7 @@
             "name": "nais-deploytest",
             "namespace": "default",
             "labels": {
-              "team": "eessibasis"
+              "team": "eessi-basis"
             }
           },
           "spec": {
