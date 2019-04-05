@@ -5,7 +5,7 @@
   "required_contexts": [],
   "payload": {
     "version": [1, 0, 0],
-    "team": "eessi-basis",
+    "team": "eessibasis",
     "kubernetes": {
       "resources": [
         {
@@ -15,7 +15,7 @@
             "name": "nais-deploytest",
             "namespace": "default",
             "labels": {
-              "team": "eessi-basis"
+              "team": "eessibasis"
             }
           },
           "spec": {
