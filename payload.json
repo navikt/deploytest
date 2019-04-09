@@ -19,7 +19,7 @@
             }
           },
           "spec": {
-            "image": "navikt/eessideploytest:1.0",
+            "image": "navikt/eessideploytest:1.1",
             "port": 8080,
             "liveness": {
               "path": "/isalive"
