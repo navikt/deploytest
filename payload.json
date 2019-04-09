@@ -19,7 +19,7 @@
             }
           },
           "spec": {
-            "image": "navikt/deploytest:latest",
+            "image": "navikt/eessideploytest:latest",
             "port": 8080,
             "liveness": {
               "path": "/isalive"
@@ -35,7 +35,7 @@
               "max": 4
             },
             "ingresses": [
-              "https://deploytest.dev-fss.nais.io"
+              "https://eessideploytest.dev-fss.nais.io"
             ],
             "resources": {
               "limits": {
