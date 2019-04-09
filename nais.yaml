@@ -19,6 +19,7 @@ spec:
     max: 4
   ingresses:
     - "https://eessideploytest.dev-fss.nais.io"
+    - "https://deploytest.dev-fss.nais.io"    
   resources:
     limits:
       cpu: 500m
