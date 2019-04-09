@@ -6,7 +6,7 @@ metadata:
   labels:
     team: eessibasis
 spec:
-  image: navikt/deploytest:latest
+  image: navikt/eessideploytest:latest
   port: 8080
   liveness:
     path: /isalive
@@ -18,7 +18,7 @@ spec:
     min: 2
     max: 4
   ingresses:
-    - "https://nais-deploytest.nais.preprod.local"
+    - "https://eessideploytest.dev-fss.nais.io"
   resources:
     limits:
       cpu: 500m
