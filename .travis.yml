@@ -5,7 +5,7 @@ services:
   - docker
 env:
   global:
-    - DOCKER_IMAGE_FULL_NAME="navikt/eessideploytest:$TRAVIS_COMMIT"
+    - DOCKER_IMAGE_FULL_NAME="navikt/eessideploytest:1.0"
 script:
   - mvn package
   - docker build -t "$DOCKER_IMAGE_FULL_NAME" .
