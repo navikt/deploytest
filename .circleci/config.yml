@@ -1,15 +1,6 @@
 version: 2.0
 jobs:
   build:
-    parameters:
-      DOCKER_USERNAME:
-        type: env_var_name
-      DOCKER_PASSWORD:
-        type: env_var_name
-      GIT_USERNAME:
-        type: env_var_name
-      GIT_TOKEN:
-        type: env_var_name
     environment:
       DOCKER_IMAGE_FULL_NAME: "navikt/eessideploytest:1.2"
     docker:
