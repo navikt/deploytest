@@ -22,7 +22,6 @@ jobs:
           name: Build docker image
           command: |
             mvn package
-            echo "DOCKER_IMAGE_FULL_NAME: "${DOCKER_IMAGE_FULL_NAME}
             docker build -t ${DOCKER_IMAGE_FULL_NAME} .
       - deploy:
           command: |
