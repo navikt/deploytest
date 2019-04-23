@@ -1,24 +1,33 @@
-version: 2
+version: 2.0
 jobs:
   build:
-
-    working_directory: ~/deploytest
-
+    parameters:
+      DOCKER_IMAGE_FULL_NAME:
+        type: string
+        default: "navikt/eessideploytest:1.2"
+      DOCKER_USERNAME:
+        type: env_var_name
+      DOCKER_PASSWORD:
+        type: env_var_name
+      GIT_USERNAME:
+        type: env_var_name
+      GIT_TOKEN:
+        type: env_var_name
     docker:
       - image: circleci/openjdk:8-jdk-browsers
-
+    working_directory: ~/deploytest
     steps:
+      - checkout
       - run:
-          environment:
-            DOCKER_IMAGE_FULL_NAME:"navikt/eessideploytest:1.2"
+          name: Build docker image
           command: |
             mvn package
-            docker build -t "$DOCKER_IMAGE_FULL_NAME" .
-
+            echo "DOCKER_IMAGE_FULL_NAME: "${DOCKER_IMAGE_FULL_NAME}
+            docker build -t ${DOCKER_IMAGE_FULL_NAME} .
       - deploy:
           command: |
             echo "Starting deploy"
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_IMAGE_FULL_NAME"
-              curl -X POST -d@payload.json -H "Accept: application/vnd.github.ant-man-preview+json" -u "$GIT_USERNAME":"$GIT_TOKEN" https://api.github.com/repos/navikt/deploytest/deployments
+              echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin && docker push "${DOCKER_IMAGE_FULL_NAME}"
+              curl -X POST -d@payload.json -H "Accept: application/vnd.github.ant-man-preview+json" -u "${GIT_USERNAME}":"${GIT_TOKEN}" https://api.github.com/repos/navikt/deploytest/deployments
             fi
