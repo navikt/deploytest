@@ -2,9 +2,6 @@ version: 2.0
 jobs:
   build:
     parameters:
-      DOCKER_IMAGE_FULL_NAME:
-        type: string
-        default: "navikt/eessideploytest:1.2"
       DOCKER_USERNAME:
         type: env_var_name
       DOCKER_PASSWORD:
@@ -13,6 +10,8 @@ jobs:
         type: env_var_name
       GIT_TOKEN:
         type: env_var_name
+    environment:
+      DOCKER_IMAGE_FULL_NAME: "navikt/eessideploytest:1.2"
     docker:
       - image: circleci/openjdk:8-jdk-browsers
     working_directory: ~/deploytest
